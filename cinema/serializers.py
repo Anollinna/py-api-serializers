@@ -105,9 +105,6 @@ class MovieInSessionSerializer(serializers.ModelSerializer):
         model = Movie
         fields = ("id", "title", "description", "duration", "genres", "actors")
 
-    def get_actors(self, obj):
-        return [str(actor) for actor in obj.actors.all()]
-
 
 class MovieSessionRetrieveSerializer(serializers.ModelSerializer):
     movie = MovieInSessionSerializer(many=False, read_only=True)
